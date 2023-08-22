@@ -51,22 +51,25 @@ int print_binary(unsigned int n)
  */
 int print_octal(unsigned int n)
 {
-    int rem;
-    int ctr;
+	int rem;
+	int ctr;
+	int j, i;
+	int octal[40];
 
     ctr = 0;
     if (n == 0)
     {
         _putchar('0');
-        ctr++;
+	ctr++;
         return (ctr);
-    }
+	}
     while (n != 0)
-    {
-        rem = n % 8;
-        _putchar(rem + '0');
-        ctr++;
-        n /= 8;
-    }
+	{
+	rem = n % 8;
+	octal[j++] = rem + '0';
+	n /= 8;
+	}
+    for (i = j - 1; i >= 0; i--)
+	ctr += _putchar(octal[i]);
     return (ctr);
 }
