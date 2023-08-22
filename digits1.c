@@ -6,38 +6,37 @@
  */
 int print_HEX(unsigned int n)
 {
-    int rem, i = 0, j, ctr = 0;
-    int *hex = NULL;
+int rem, i = 0, j, ctr = 0;
+int *hex = NULL;
 
-    hex = (int *)malloc(40 * sizeof(int));
+hex = (int *)malloc(40 * sizeof(int));
 
-    if (hex != NULL)
-    {
-        while (n != 0)
-        {
-            rem = n % 16;
-            if (rem < 10)
-            {
-                hex[i] = 48 + rem;
-                i++;
-            }
-            else
-            {
-                hex[i] = 55 + rem;
-                i++;
-            }
+if (hex != NULL)
+{
+while (n != 0)
+{
+rem = n % 16;
+if (rem < 10)
+{
+hex[i] = 48 + rem;
+i++;
+}
+else
+{
+hex[i] = 55 + rem;
+i++;
+}
+n /= 16;
+}
 
-            n /= 16;
-        }
+for (j = i - 1; j >= 0; j--)
+ctr += _putchar(hex[j]);
 
-        for (j = i - 1; j >= 0; j--)
-            ctr += _putchar(hex[j]);
-
-        free(hex);
-        return (ctr);
-    }
-    else
-        return (-1);
+free(hex);
+return (ctr);
+}
+else
+return (-1);
 }
 /**
  * print_0x_hex - print 0x+adress Number
@@ -46,17 +45,17 @@ int print_HEX(unsigned int n)
  */
 int print_0x_hex(void *n)
 {
-    int ctr;
+int ctr;
+ctr = 0;
 
-    ctr = 0;
-    if (n == NULL)
-        return (-1);
-    else
-    {
-        _putchar(48);
-        _putchar('x');
-        ctr += 2;
-        ctr += print_dig((long)n, 16);
-    }
-    return (ctr);
+if (n == NULL)
+return (-1);
+else
+{
+_putchar(48);
+_putchar('x');
+ctr += 2;
+ctr += print_dig((long)n, 16);
+}
+return (ctr);
 }

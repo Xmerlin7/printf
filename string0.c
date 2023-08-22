@@ -6,12 +6,13 @@
  */
 int _strlen(char *s)
 {
-    int len;
+int len;
 
-    for (len = 0; *(s + len) != '\0'; len++)
-        ;
-    return (len);
+for (len = 0; *(s + len) != '\0'; len++)
+;
+return (len);
 }
+
 /**
  * _puts - prints a string
  * @s: pointer to string to be printed
@@ -19,20 +20,20 @@ int _strlen(char *s)
  */
 int _puts(char *s)
 {
-    int ctr;
+int ctr;
 
-    ctr = 0;
-    if (NULL == s)
-        s = "(null)";
-    else
-    {
-        while (*s)
-        {
-            _putchar(*s++);
-            ctr++;
-        }
-    }
-    return (ctr);
+ctr = 0;
+if (s == NULL)
+s = "(null)";
+else
+{
+while (*s)
+{
+_putchar(*s++);
+ctr++;
+}
+}
+return (ctr);
 }
 /**
  * print_0x_hex - print \xstring
@@ -41,35 +42,35 @@ int _puts(char *s)
  */
 int _puts_0xS(char *S)
 {
-    int ctr, i;
+int ctr, i;
 
-    ctr = 0;
-    i = 0;
-    if (NULL == S)
-        S = "(null)";
-    else
-    {
-        while (*(S + i))
-        {
-            if (((*(S + i) > 0) && (*(S + i) < 32)) || (*(S + i) >= 127))
-            {
-                _putchar('\\');
-                _putchar('X');
-                ctr += 2;
-                if (*(S + i) < 16)
-                {
-                    _putchar(48);
-                    ctr++;
-                }
-                ctr += print_HEX(*(S + i));
-            }
-            else
-            {
-                _putchar(*(S + i));
-                ctr++;
-            }
-            i++;
-        }
-    }
-    return (ctr);
+ctr = 0;
+i = 0;
+if (NULL == S)
+S = "(null)";
+else
+{
+while (*(S + i))
+{
+if (((*(S + i) > 0) && (*(S + i) < 32)) || (*(S + i) >= 127))
+{
+_putchar('\\');
+_putchar('X');
+ctr += 2;
+if (*(S + i) < 16)
+{
+_putchar(48);
+ctr++;
+}
+ctr += print_HEX(*(S + i));
+}
+else
+{
+_putchar(*(S + i));
+ctr++;
+}
+i++;
+}
+}
+return (ctr);
 }
